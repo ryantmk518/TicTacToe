@@ -7,8 +7,7 @@ using namespace std;
 
 char board[6]; //Initialize variables
 char game[3][3];
-void Reset();
-void PrintBoard();
+void Reset(char[3][3]);
 bool CheckXWin(char[3][3]);
 bool CheckOWin(char[3][3]);
 bool start = false;
@@ -23,17 +22,12 @@ char playAgain;
 bool restart = true;
 
 int main() {
-  board[1] = 'A'; //Sets up board
-  board[2] = 'B';
-  board[3] = 'C';
-  board[4] = '1';
-  board[5] = '2';
-  board[6] = '3';
   cout << "\n Welcome to TicTacToe. \n" << endl;
   while(restart == true) {
     cout<< "X has " << Xwins << " wins\n" << "O has " << Owins << " wins \n" << endl;
-    Reset(); //Reset board
-    PrintBoard(); //Print the board
+    Reset(game); //Reset board
+    cout << "   "<< "A" << "   " << "B" << "   " << "C" << "\n\n" << "1" << "  " << game[0][0] << "   " << game[0][1] << "   " << game[0][2] << "\n\n" << "2" << "  " << game[1][0] << "   " << game[1][1] << "   " << game[1][2] << "\n\n" << "3" << "  " << game[2][0] << "   " << game[2][1] << "   " << game[2][2] << endl;
+    //Print the board
     restart = false;
     bool start = true; //While the game is still going
     while (start) {
@@ -66,7 +60,7 @@ int main() {
 	  }
 	  if (allow == true) { //If input is valid, put it on the board
 	    game[row][col] = 'X';
-	    PrintBoard();
+	      cout << "   "<< "A" << "   " << "B" << "   " << "C" << "\n\n" << "1" << "  " << game[0][0] << "   " << game[0][1] << "   " << game[0][2] << "\n\n" << "2" << "  " << game[1][0] << "   " << game[1][1] << "   " << game[1][2] << "\n\n" << "3" << "  " << game[2][0] << "   " << game[2][1] << "   " << game[2][2] << endl;
 	    TieCount++;
 	  }
 	  if (allow == false) {
@@ -114,7 +108,7 @@ int main() {
 	  if (allow == true) {
 	    TieCount++;
 	    game[row][col] = 'O';
-	    PrintBoard();
+	    cout << "   "<< "A" << "   " << "B" << "   " << "C" << "\n\n" << "1" << "  " << game[0][0] << "   " << game[0][1] << "   " << game[0][2] << "\n\n" << "2" << "  " << game[1][0] << "   " << game[1][1] << "   " << game[1][2] << "\n\n" << "3" << "  " << game[2][0] << "   " << game[2][1] << "   " << game[2][2] << endl;
 	  }
 	  if (allow == false) {
 
@@ -208,7 +202,7 @@ bool CheckOWin(char game[3][3]) { //Check each possiblilty for win
   return true;
 }
 
-void Reset() { //Reset board
+void Reset(char game[3][3]) { //Reset board
   game[0][0] = ' ';
   game[0][1] = ' ';
   game[0][2] = ' ';
@@ -218,8 +212,4 @@ void Reset() { //Reset board
   game[2][0] = ' ';
   game[2][1] = ' ';
   game[2][2] = ' ';
-}
-
-void PrintBoard(){ //Prints board
-  cout << "   "<< board[1] << "   " << board[2] << "   " << board[3] << "\n\n" << board[4] << "  " << game[0][0] << "   " << game[0][1] << "   " << game[0][2] << "\n\n" << board[5] << "  " << game[1][0] << "   " << game[1][1] << "   " << game[1][2] << "\n\n" << board[6] << "  " << game[2][0] << "   " << game[2][1] << "   " << game[2][2] << endl;
 }

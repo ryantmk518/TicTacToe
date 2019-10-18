@@ -4,24 +4,22 @@
 using namespace std;
 
 //Ryan Thammakhoune. TicTacToe. Classic TicTacToe game that also counts wins.
-
-char board[6]; //Initialize variables
-char game[3][3];
 void Reset(char[3][3]);
 bool CheckXWin(char[3][3]);
 bool CheckOWin(char[3][3]);
-bool start = false;
-int player = 0;
-char input[4];
-int col;
-int row;
-int Xwins = 0;
-int Owins = 0;
-int TieCount = 0;
-char playAgain;
-bool restart = true;
-
 int main() {
+  char board[6]; //Initialize variables
+  char game[3][3];
+  bool start = false;
+  int player = 0;
+  char input[4];
+  int col;
+  int row;
+  int Xwins = 0;
+  int Owins = 0;
+  int TieCount = 0;
+  char playAgain;
+  bool restart = true;
   cout << "\n Welcome to TicTacToe. \n" << endl;
   while(restart == true) {
     cout<< "X has " << Xwins << " wins\n" << "O has " << Owins << " wins \n" << endl;
